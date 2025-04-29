@@ -1,4 +1,4 @@
-import { Resolver, Mutation, Args } from '@nestjs/graphql';
+import { Resolver, Mutation, Args, Query } from '@nestjs/graphql';
 import { AuthService } from './auth.service';
 import { Auth } from './entities/auth.entity';
 import { CreateAuthInput } from './dto/create-auth.input';
@@ -27,7 +27,7 @@ export class AuthResolver {
     return await this.authService.login(payload);
   }
 
-  @Mutation(() => User, {nullable: true})
+  @Query(() => User, { nullable: true, name: 'getCurrentUser' })
   auth(@AuthUser() user: User) {
     return user;
   }

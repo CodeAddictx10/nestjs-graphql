@@ -14,6 +14,8 @@ import dbConfig from '@/config/db.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from '@/modules/users/users.module';
 import { AuthModule } from '@/modules/auth/auth.module';
+import { DepartmentsModule } from './modules/departments/departments.module';
+import { SubDepartmentsModule } from './modules/sub-departments/sub-departments.module';
 
 @Module({
   imports: [
@@ -38,6 +40,8 @@ import { AuthModule } from '@/modules/auth/auth.module';
     TypeOrmModule.forRootAsync(dbConfig.asProvider()),
     UsersModule,
     AuthModule,
+    DepartmentsModule,
+    SubDepartmentsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
