@@ -9,5 +9,6 @@ export default registerAs(
     type: 'postgres',
     entities: [path.resolve(__dirname, '..') + '/**/*.entity{.ts,.js}'],
     synchronize: true,
+    logging: 'all',
   }),
 );
