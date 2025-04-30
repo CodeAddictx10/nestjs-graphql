@@ -1,5 +1,5 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { hash, verify } from 'argon2';
+import { verify } from 'argon2';
 import { LoginInput } from './dto/login.input';
 import { JwtService } from '@nestjs/jwt';
 import { Auth } from './entities/auth.entity';

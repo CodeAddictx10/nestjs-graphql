@@ -3,15 +3,12 @@ import {
   Query,
   Mutation,
   Args,
-  Int,
-  ResolveField,
-  Parent,
+  Int
 } from '@nestjs/graphql';
 import { SubDepartmentsService } from './sub-departments.service';
 import { SubDepartment } from './entities/sub-department.entity';
 import { CreateSubDepartmentInput } from './dto/create-sub-department.input';
 import { UpdateSubDepartmentInput } from './dto/update-sub-department.input';
-import { Department } from '../departments/entities/department.entity';
 import { DepartmentsService } from '../departments/departments.service';
 
 @Resolver(() => SubDepartment)
@@ -50,13 +47,13 @@ export class SubDepartmentsResolver {
     );
   }
 
-  @Mutation(() => Boolean, { name: 'deleteSubCategory' })
+  @Mutation(() => Boolean, { name: 'deleteSubDepartment' })
   async removeSubDepartment(@Args('id', { type: () => Int }) id: number) {
     return await this.subDepartmentsService.remove(id);
   }
 
-  @ResolveField(() => Department, { name: 'department' })
-  async getDepartment(@Parent() subDepartment: SubDepartment) {
-    return this.departmentService.findOne(subDepartment.departmentId);
-  }
+  // @ResolveField(() => Department, { name: 'department' })
+  // async getDepartment(@Parent() subDepartment: SubDepartment) {
+  //   return this.departmentService.findOne(subDepartment.departmentId);
+  // }
 }

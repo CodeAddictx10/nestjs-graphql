@@ -38,7 +38,7 @@ export class UsersService {
           value: username,
         }),
       },
-      select: { password: true },
+      select: { password: true, username: true, id: true },
     });
   }
 }

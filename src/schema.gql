@@ -23,7 +23,7 @@ type SubDepartment {
   name: String!
   createdAt: DateTime!
   updatedAt: DateTime!
-  department: Department!
+  department: Department
 }
 
 type Department {
@@ -50,7 +50,7 @@ type Mutation {
   deleteDepartment(id: Int!): Boolean!
   createSubDepartment(createSubDepartmentInput: CreateSubDepartmentInput!): SubDepartment!
   updateSubDepartment(updateSubDepartmentInput: UpdateSubDepartmentInput!): SubDepartment!
-  deleteSubCategory(id: Int!): Boolean!
+  deleteSubDepartment(id: Int!): Boolean!
 }
 
 input CreateAuthInput {

@@ -7,6 +7,9 @@ import { RecordNotFoundFilter } from './core/filters/record-not-found.filter';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
+  app.enableCors({
+    origin: ['http://localhost:3000'],
+  });
   app.useGlobalFilters(new RecordNotFoundFilter());
   app.useGlobalPipes(new ValidationPipe());
 

@@ -21,12 +21,15 @@ export class SubDepartmentsService {
   }
 
   async findAll(): Promise<SubDepartment[]> {
-    return await this.subDepartmentRepository.find({});
+    return await this.subDepartmentRepository.find({
+      relations: ["department"]
+    });
   }
 
   async findOne(id: number): Promise<SubDepartment> {
     return await this.subDepartmentRepository.findOneOrFail({
       where: { id },
+      relations: ['department'],
     });
   }
 

@@ -15,6 +15,7 @@ export class DepartmentsResolver {
     return await this.departmentsService.create(createDepartmentInput);
   }
 
+
   @Query(() => [Department], { name: 'getDepartments' })
   async findAll() {
     return await this.departmentsService.findAll();
@@ -35,7 +36,7 @@ export class DepartmentsResolver {
     );
   }
 
-  @Mutation(() => Boolean, {name: 'deleteDepartment'})
+  @Mutation(() => Boolean, { name: 'deleteDepartment' })
   async removeDepartment(@Args('id', { type: () => Int }) id: number) {
     return await this.departmentsService.remove(id);
   }
