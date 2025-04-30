@@ -4,4 +4,5 @@ export default () => ({
     secret: process.env.JWT_SECRET,
     expires_in: process.env.JWT_EXPIRES_IN,
   },
+  origins: process.env.ORIGINS?.split(',')
 });
