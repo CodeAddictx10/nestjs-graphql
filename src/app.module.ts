@@ -15,6 +15,7 @@ import { UsersModule } from '@/modules/users/users.module';
 import { AuthModule } from '@/modules/auth/auth.module';
 import { DepartmentsModule } from './modules/departments/departments.module';
 import { SubDepartmentsModule } from './modules/sub-departments/sub-departments.module';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -41,6 +42,7 @@ import { SubDepartmentsModule } from './modules/sub-departments/sub-departments.
     DepartmentsModule,
     SubDepartmentsModule,
   ],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
