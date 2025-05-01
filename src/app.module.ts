@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from '@/app.controller';
 import { AppService } from '@/app.service';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
@@ -31,7 +30,6 @@ import { SubDepartmentsModule } from './modules/sub-departments/sub-departments.
       plugins: [
         process.env.NODE_ENV === 'production'
           ? ApolloServerPluginLandingPageProductionDefault({
-              graphRef: 'my-graph-id@my-graph-variant',
               footer: false,
             })
           : ApolloServerPluginLandingPageLocalDefault({ footer: false }),
@@ -43,7 +41,6 @@ import { SubDepartmentsModule } from './modules/sub-departments/sub-departments.
     DepartmentsModule,
     SubDepartmentsModule,
   ],
-  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}

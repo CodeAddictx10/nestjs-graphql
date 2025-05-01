@@ -8,7 +8,7 @@ export default registerAs(
     url: process.env.DATABASE_URL,
     type: 'postgres',
     entities: [path.resolve(__dirname, '..') + '/**/*.entity{.ts,.js}'],
-    synchronize: !(process.env.NODE === "production"),
-    logging: process.env.NODE === "production" ? ['error'] : ['query', 'error', 'warn'],
+    synchronize: !(process.env.NODE_ENV === "production"),
+    logging: process.env.NODE_ENV === "production" ? ['error'] : ['query', 'error', 'warn'],
   }),
 );
